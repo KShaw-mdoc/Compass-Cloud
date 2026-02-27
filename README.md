@@ -1,93 +1,106 @@
-# Certiport Compass Cloud – Test Delivery Download Hub
+# Certiport Compass Cloud – Resident EDU Network
 
-This repository provides **approved download links** for **Certiport Compass Cloud** used for **Certiport testing** across the Resident EDU network.
+This repository contains approved **Certiport Compass Cloud** installers for devices used across the Resident Education (Res EDU) network.
 
-Installers are published in **GitHub Releases** so staff can reliably download the correct package without digging through portals or email threads.
+The installers are version-controlled and distributed via GitHub Releases to ensure consistent deployment across facilities.
 
----
+Designed for:
 
-## ✅ What’s in this repo
-
-Releases may include:
-
-- **Windows installer** (Compass Cloud Setup `.exe` / `.msi` if provided)
-- **macOS installer** (`.pkg` / `.dmg` if provided)
-- Optional: checksum files (`.sha256`) for integrity verification
-- Optional: a short “Install Notes” text file per release
-
-> **Note:** This repo is intended for **distribution of installers only** (no exam content, no credentials).
+✅ Windows lab deployment (manual or scripted)  
+✅ macOS deployment (manual or MDM-based)  
+📦 Centralized version control  
 
 ---
 
-## 📦 Downloads (Latest Recommended)
+# 📦 Contents
 
-| Platform | Download |
-|---------|----------|
-| Windows | **Download** → (see Releases below) |
-| macOS   | **Download** → (see Releases below) |
+This repo includes:
 
-➡️ **Browse all releases:**  
-https://github.com/<YOUR-ORG-OR-USER>/<REPO-NAME>/releases
+• `.msi` files for Windows (silent install support)  
+• `.dmg` files for macOS  
+• Releases organized by version tag  
 
 ---
 
-## 🏷️ Release Naming Standard
+# 🏷️ Releases by Version
 
-Each release should be created using this format:
+Click to download the Windows and macOS installers for each version:
 
-- **Release Title:** `Compass Cloud vX.Y.Z`
-- **Tag:** `vX.Y.Z`
-- **Assets:**
-  - `compass_cloud_windows_vX.Y.Z.exe` (or `.msi`)
-  - `compass_cloud_macos_vX.Y.Z.pkg` (or `.dmg`)
-  - `SHA256SUMS.txt` (optional)
+| Version | Windows (.msi) | macOS (.dmg) |
+|----------|----------------|--------------|
+| v2026.1 | Download | Download |
+| v2026.2 | Download | Download |
 
-This keeps versioning clean and makes rollback easy.
-
----
-
-## 🔗 Direct URLs (for scripting / documentation)
-
-Once a release is published, the asset links will follow this pattern:
-
-- Windows:
-  https://github.com/<YOUR-ORG-OR-USER>/<REPO-NAME>/releases/download/vX.Y.Z/<WINDOWS_FILENAME>
-
-- macOS:
-  https://github.com/<YOUR-ORG-OR-USER>/<REPO-NAME>/releases/download/vX.Y.Z/<MAC_FILENAME>
-
-> Tip: After uploading assets to a release, right-click the asset → copy link address.
+🔗 Browse all releases:  
+https://github.com/KShaw-mdoc/Certiport-CompassCloud/releases
 
 ---
 
-## 🧰 Install Notes
+# 🔗 Direct URLs (for scripting or documentation)
 
-### Windows (typical)
-1. Download the Windows installer from the latest release.
-2. Run the installer as needed for the lab environment.
+After publishing a release, the download URLs will follow this structure:
 
-If an MSI is available, a silent install usually looks like:
-```bat
-msiexec /i "<installer>.msi" /qn
-macOS (typical)
+### v2026.1 Example
 
-If using a .pkg, you can deploy through MDM (Mosyle) using the direct package link.
+| Platform | Direct URL |
+|----------|------------|
+| Windows | https://github.com/KShaw-mdoc/Certiport-CompassCloud/releases/download/v2026.1/compass_cloud_windows_v2026.1.msi |
+| macOS | https://github.com/KShaw-mdoc/Certiport-CompassCloud/releases/download/v2026.1/compass_cloud_macos_v2026.1.dmg |
 
-If using .dmg, install may require manual steps depending on vendor packaging.
+---
 
-✅ Operational Checklist (Pilot/Testing)
+# 🚀 Deployment Instructions
 
-Before test day:
+## 💻 Windows Deployment
 
-Confirm the Compass Cloud version matches Certiport requirements
+1. Download the appropriate `.msi` from the Releases page.
+2. Install manually or deploy via RMM/script.
 
-Confirm lab devices meet OS + network requirements
+Silent install example:
 
-Confirm any required permissions (camera/mic if needed, kiosk mode, etc.)
 
-Confirm proctor account workflow (if applicable)
+msiexec /i compass_cloud_windows_v2026.1.msi /qn
 
-📞 Contact
 
-For Certiport/Compass Cloud deployment support, contact:
+You may add additional MSI parameters if required by Certiport documentation.
+
+---
+
+## 🍎 macOS Deployment
+
+1. Download the `.dmg` from the Releases page.
+2. Mount the DMG.
+3. Install according to vendor instructions.
+
+If deploying through Mosyle or another MDM:
+• Upload the DMG or converted PKG as required  
+• Assign to appropriate Smart Group  
+• Confirm installation prior to test day  
+
+---
+
+# 🧪 Pre-Test Validation Checklist
+
+Before scheduling Certiport exams:
+
+• Confirm Compass Cloud version matches Certiport requirements  
+• Verify network/firewall access  
+• Confirm camera/microphone permissions (if required)  
+• Ensure local user permissions are correct  
+• Test launch on at least one device per lab  
+
+---
+
+# 🔐 Notes
+
+• This repository contains installers only.  
+• No exam content, credentials, or licensing data are stored here.  
+• Ensure compliance with Certiport distribution policies.  
+
+---
+
+# 📞 Contact
+
+For Certiport / Compass Cloud deployment support or version management:
+
 📧 Kenneth.Shaw@maine.gov
